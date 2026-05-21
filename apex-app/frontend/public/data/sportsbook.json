@@ -1,0 +1,64 @@
+{
+  "generated_at": "2026-05-21T17:07:28.373528+00:00",
+  "partner_count": 6,
+  "handle_ytd_usd": 9420000000,
+  "handle_yoy": 0.236,
+  "hold_pct": 0.084,
+  "top_markets": [
+    {
+      "market": "Moneyline",
+      "handle_ytd_usd": 3412000000,
+      "yoy": 0.184
+    },
+    {
+      "market": "Point spread",
+      "handle_ytd_usd": 2840000000,
+      "yoy": 0.211
+    },
+    {
+      "market": "Player props",
+      "handle_ytd_usd": 1614000000,
+      "yoy": 0.412
+    },
+    {
+      "market": "Live in-game",
+      "handle_ytd_usd": 1142000000,
+      "yoy": 0.638
+    },
+    {
+      "market": "Parlays",
+      "handle_ytd_usd": 412000000,
+      "yoy": 0.178
+    }
+  ],
+  "integrity_agent": {
+    "name": "Apex Integrity Monitoring Agent v1.1",
+    "wagers_scored_24h": 24800000,
+    "flagged_24h": 12,
+    "high_severity_open": 1,
+    "flags": [
+      {
+        "flag_id": "INT-2026-014",
+        "severity": "high",
+        "game_id": "G-2547",
+        "matchup": "Foundry at Stockyards",
+        "market": "Player props \u00b7 K. Sterling assists o4.5",
+        "summary": "Anomalous handle concentration on under: 78% of dollar volume in final 45 minutes from 3 IP clusters not historically active in this market. Z-score 3.8. Routed to integrity desk + sportsbook partner compliance.",
+        "detected_at": "2026-05-20T01:42:00Z",
+        "status": "under review"
+      },
+      {
+        "flag_id": "INT-2026-013",
+        "severity": "elevated",
+        "game_id": "G-2538",
+        "matchup": "Coyotes FC at Tides",
+        "market": "1st half total points under 48.5",
+        "summary": "Line moved 4.5 points in 12 minutes with handle 2.4x normal pre-game; concentration of large bets ($25k+) from new accounts. Z-score 2.6.",
+        "detected_at": "2026-05-18T17:08:00Z",
+        "status": "monitoring"
+      }
+    ],
+    "false_positive_rate": 0.062,
+    "avg_detection_latency_seconds": 22
+  }
+}

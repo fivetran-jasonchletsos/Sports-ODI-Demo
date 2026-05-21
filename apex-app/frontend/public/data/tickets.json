@@ -1,0 +1,482 @@
+{
+  "generated_at": "2026-05-21T17:07:28.373528+00:00",
+  "season_ticket_avg_retention": 0.821,
+  "league_avg_no_show": 0.118,
+  "markets": [
+    {
+      "team_id": "CHI",
+      "city": "Chicago",
+      "avg_primary_usd": 108.11,
+      "avg_secondary_usd": 62.05,
+      "secondary_premium_pct": 0.229
+    },
+    {
+      "team_id": "POR",
+      "city": "Portland",
+      "avg_primary_usd": 68.98,
+      "avg_secondary_usd": 177.31,
+      "secondary_premium_pct": 0.445
+    },
+    {
+      "team_id": "WAS",
+      "city": "Washington",
+      "avg_primary_usd": 131.86,
+      "avg_secondary_usd": 72.08,
+      "secondary_premium_pct": 0.308
+    },
+    {
+      "team_id": "NSH",
+      "city": "Nashville",
+      "avg_primary_usd": 50.8,
+      "avg_secondary_usd": 93.42,
+      "secondary_premium_pct": 0.353
+    },
+    {
+      "team_id": "CLT",
+      "city": "Charlotte",
+      "avg_primary_usd": 50.49,
+      "avg_secondary_usd": 90.21,
+      "secondary_premium_pct": 0.431
+    },
+    {
+      "team_id": "HOU",
+      "city": "Houston",
+      "avg_primary_usd": 99.22,
+      "avg_secondary_usd": 93.71,
+      "secondary_premium_pct": 0.398
+    },
+    {
+      "team_id": "PHX",
+      "city": "Phoenix",
+      "avg_primary_usd": 124.09,
+      "avg_secondary_usd": 59.05,
+      "secondary_premium_pct": 0.515
+    },
+    {
+      "team_id": "DET",
+      "city": "Detroit",
+      "avg_primary_usd": 113.63,
+      "avg_secondary_usd": 113.12,
+      "secondary_premium_pct": 0.164
+    },
+    {
+      "team_id": "MTL",
+      "city": "Montreal",
+      "avg_primary_usd": 137.98,
+      "avg_secondary_usd": 112.53,
+      "secondary_premium_pct": 0.13
+    },
+    {
+      "team_id": "MSP",
+      "city": "Twin Cities",
+      "avg_primary_usd": 57.09,
+      "avg_secondary_usd": 195.29,
+      "secondary_premium_pct": 0.406
+    },
+    {
+      "team_id": "ATL",
+      "city": "Atlanta",
+      "avg_primary_usd": 123.87,
+      "avg_secondary_usd": 176.22,
+      "secondary_premium_pct": 0.37
+    },
+    {
+      "team_id": "ORL",
+      "city": "Orlando",
+      "avg_primary_usd": 139.47,
+      "avg_secondary_usd": 119.32,
+      "secondary_premium_pct": 0.378
+    },
+    {
+      "team_id": "LAX",
+      "city": "Los Angeles",
+      "avg_primary_usd": 125.96,
+      "avg_secondary_usd": 158.2,
+      "secondary_premium_pct": 0.545
+    },
+    {
+      "team_id": "KCM",
+      "city": "Kansas City",
+      "avg_primary_usd": 102.27,
+      "avg_secondary_usd": 172.14,
+      "secondary_premium_pct": 0.105
+    },
+    {
+      "team_id": "SEA",
+      "city": "Seattle",
+      "avg_primary_usd": 69.42,
+      "avg_secondary_usd": 104.88,
+      "secondary_premium_pct": 0.123
+    },
+    {
+      "team_id": "NYC",
+      "city": "New York",
+      "avg_primary_usd": 69.88,
+      "avg_secondary_usd": 74.36,
+      "secondary_premium_pct": 0.23
+    },
+    {
+      "team_id": "PHI",
+      "city": "Philadelphia",
+      "avg_primary_usd": 107.75,
+      "avg_secondary_usd": 117.1,
+      "secondary_premium_pct": 0.28
+    },
+    {
+      "team_id": "BOS",
+      "city": "Boston",
+      "avg_primary_usd": 67.69,
+      "avg_secondary_usd": 101.25,
+      "secondary_premium_pct": 0.586
+    },
+    {
+      "team_id": "DEN",
+      "city": "Denver",
+      "avg_primary_usd": 108.92,
+      "avg_secondary_usd": 156.68,
+      "secondary_premium_pct": 0.172
+    },
+    {
+      "team_id": "BAY",
+      "city": "Bay Area",
+      "avg_primary_usd": 116.54,
+      "avg_secondary_usd": 84.47,
+      "secondary_premium_pct": 0.285
+    },
+    {
+      "team_id": "MIA",
+      "city": "Miami",
+      "avg_primary_usd": 141.02,
+      "avg_secondary_usd": 161.68,
+      "secondary_premium_pct": 0.381
+    },
+    {
+      "team_id": "AUS",
+      "city": "Austin",
+      "avg_primary_usd": 112.35,
+      "avg_secondary_usd": 194.54,
+      "secondary_premium_pct": 0.499
+    },
+    {
+      "team_id": "STL",
+      "city": "St. Louis",
+      "avg_primary_usd": 69.53,
+      "avg_secondary_usd": 63.2,
+      "secondary_premium_pct": 0.25
+    },
+    {
+      "team_id": "TOR",
+      "city": "Toronto",
+      "avg_primary_usd": 73.17,
+      "avg_secondary_usd": 92.18,
+      "secondary_premium_pct": 0.589
+    }
+  ],
+  "top_demand_games": [
+    {
+      "game_id": "G-2600",
+      "date": "2026-01-01",
+      "home_team_id": "CHI",
+      "away_team_id": "POR",
+      "matchup": "Cascades at Ironworks",
+      "venue": "Chicago Arena",
+      "demand_index": 80.5,
+      "current_avg_price_usd": 217.75,
+      "agent_recommended_price_usd": 269.27,
+      "expected_attendance": 19741,
+      "capacity": 22766
+    },
+    {
+      "game_id": "G-2601",
+      "date": "2026-02-02",
+      "home_team_id": "POR",
+      "away_team_id": "WAS",
+      "matchup": "Monuments at Cascades",
+      "venue": "Portland Arena",
+      "demand_index": 79.2,
+      "current_avg_price_usd": 142.59,
+      "agent_recommended_price_usd": 158.85,
+      "expected_attendance": 21098,
+      "capacity": 21915
+    },
+    {
+      "game_id": "G-2602",
+      "date": "2026-03-03",
+      "home_team_id": "WAS",
+      "away_team_id": "NSH",
+      "matchup": "Pickers at Monuments",
+      "venue": "Washington Arena",
+      "demand_index": 87.8,
+      "current_avg_price_usd": 107.29,
+      "agent_recommended_price_usd": 140.48,
+      "expected_attendance": 19771,
+      "capacity": 20465
+    },
+    {
+      "game_id": "G-2603",
+      "date": "2026-04-04",
+      "home_team_id": "NSH",
+      "away_team_id": "CLT",
+      "matchup": "Hornets FC at Pickers",
+      "venue": "Nashville Arena",
+      "demand_index": 98.9,
+      "current_avg_price_usd": 99.48,
+      "agent_recommended_price_usd": 118.66,
+      "expected_attendance": 17244,
+      "capacity": 23691
+    },
+    {
+      "game_id": "G-2604",
+      "date": "2026-05-05",
+      "home_team_id": "CLT",
+      "away_team_id": "HOU",
+      "matchup": "Voyagers at Hornets FC",
+      "venue": "Charlotte Arena",
+      "demand_index": 75.0,
+      "current_avg_price_usd": 68.48,
+      "agent_recommended_price_usd": 84.11,
+      "expected_attendance": 22074,
+      "capacity": 20958
+    },
+    {
+      "game_id": "G-2605",
+      "date": "2026-01-06",
+      "home_team_id": "HOU",
+      "away_team_id": "PHX",
+      "matchup": "Coyotes FC at Voyagers",
+      "venue": "Houston Arena",
+      "demand_index": 82.4,
+      "current_avg_price_usd": 167.35,
+      "agent_recommended_price_usd": 203.96,
+      "expected_attendance": 20334,
+      "capacity": 21834
+    },
+    {
+      "game_id": "G-2606",
+      "date": "2026-02-07",
+      "home_team_id": "PHX",
+      "away_team_id": "DET",
+      "matchup": "Assembly at Coyotes FC",
+      "venue": "Phoenix Arena",
+      "demand_index": 86.9,
+      "current_avg_price_usd": 105.25,
+      "agent_recommended_price_usd": 139.22,
+      "expected_attendance": 22072,
+      "capacity": 23404
+    },
+    {
+      "game_id": "G-2607",
+      "date": "2026-03-08",
+      "home_team_id": "DET",
+      "away_team_id": "MTL",
+      "matchup": "Royale at Assembly",
+      "venue": "Detroit Arena",
+      "demand_index": 95.9,
+      "current_avg_price_usd": 80.62,
+      "agent_recommended_price_usd": 102.0,
+      "expected_attendance": 22796,
+      "capacity": 22750
+    },
+    {
+      "game_id": "G-2608",
+      "date": "2026-04-09",
+      "home_team_id": "MTL",
+      "away_team_id": "MSP",
+      "matchup": "Northstars at Royale",
+      "venue": "Montreal Arena",
+      "demand_index": 79.9,
+      "current_avg_price_usd": 121.23,
+      "agent_recommended_price_usd": 131.83,
+      "expected_attendance": 16526,
+      "capacity": 23415
+    },
+    {
+      "game_id": "G-2609",
+      "date": "2026-05-10",
+      "home_team_id": "MSP",
+      "away_team_id": "ATL",
+      "matchup": "Foundry at Northstars",
+      "venue": "Twin Cities Arena",
+      "demand_index": 79.1,
+      "current_avg_price_usd": 217.65,
+      "agent_recommended_price_usd": 259.05,
+      "expected_attendance": 17963,
+      "capacity": 21658
+    },
+    {
+      "game_id": "G-2610",
+      "date": "2026-01-11",
+      "home_team_id": "ATL",
+      "away_team_id": "ORL",
+      "matchup": "Starliners at Foundry",
+      "venue": "Atlanta Arena",
+      "demand_index": 95.5,
+      "current_avg_price_usd": 224.27,
+      "agent_recommended_price_usd": 253.32,
+      "expected_attendance": 21734,
+      "capacity": 21658
+    },
+    {
+      "game_id": "G-2611",
+      "date": "2026-02-12",
+      "home_team_id": "ORL",
+      "away_team_id": "LAX",
+      "matchup": "Mavericks at Starliners",
+      "venue": "Orlando Arena",
+      "demand_index": 76.1,
+      "current_avg_price_usd": 169.61,
+      "agent_recommended_price_usd": 215.2,
+      "expected_attendance": 20918,
+      "capacity": 23878
+    },
+    {
+      "game_id": "G-2612",
+      "date": "2026-03-13",
+      "home_team_id": "LAX",
+      "away_team_id": "KCM",
+      "matchup": "Stockyards at Mavericks",
+      "venue": "Los Angeles Arena",
+      "demand_index": 96.8,
+      "current_avg_price_usd": 226.04,
+      "agent_recommended_price_usd": 275.69,
+      "expected_attendance": 20502,
+      "capacity": 17659
+    },
+    {
+      "game_id": "G-2613",
+      "date": "2026-04-14",
+      "home_team_id": "KCM",
+      "away_team_id": "SEA",
+      "matchup": "Tidewater at Stockyards",
+      "venue": "Kansas City Arena",
+      "demand_index": 81.8,
+      "current_avg_price_usd": 80.14,
+      "agent_recommended_price_usd": 107.03,
+      "expected_attendance": 19019,
+      "capacity": 19461
+    },
+    {
+      "game_id": "G-2614",
+      "date": "2026-05-15",
+      "home_team_id": "SEA",
+      "away_team_id": "NYC",
+      "matchup": "Bridges at Tidewater",
+      "venue": "Seattle Arena",
+      "demand_index": 95.7,
+      "current_avg_price_usd": 70.43,
+      "agent_recommended_price_usd": 93.25,
+      "expected_attendance": 17201,
+      "capacity": 23495
+    },
+    {
+      "game_id": "G-2615",
+      "date": "2026-01-16",
+      "home_team_id": "NYC",
+      "away_team_id": "PHI",
+      "matchup": "Liberty at Bridges",
+      "venue": "New York Arena",
+      "demand_index": 73.9,
+      "current_avg_price_usd": 147.48,
+      "agent_recommended_price_usd": 187.03,
+      "expected_attendance": 22773,
+      "capacity": 18530
+    },
+    {
+      "game_id": "G-2616",
+      "date": "2026-02-17",
+      "home_team_id": "PHI",
+      "away_team_id": "BOS",
+      "matchup": "Harborfront at Liberty",
+      "venue": "Philadelphia Arena",
+      "demand_index": 84.8,
+      "current_avg_price_usd": 83.11,
+      "agent_recommended_price_usd": 100.14,
+      "expected_attendance": 18671,
+      "capacity": 21822
+    },
+    {
+      "game_id": "G-2617",
+      "date": "2026-03-18",
+      "home_team_id": "BOS",
+      "away_team_id": "DEN",
+      "matchup": "Sentinels at Harborfront",
+      "venue": "Boston Arena",
+      "demand_index": 83.4,
+      "current_avg_price_usd": 217.04,
+      "agent_recommended_price_usd": 239.51,
+      "expected_attendance": 20917,
+      "capacity": 23687
+    },
+    {
+      "game_id": "G-2618",
+      "date": "2026-04-19",
+      "home_team_id": "DEN",
+      "away_team_id": "BAY",
+      "matchup": "Argonauts at Sentinels",
+      "venue": "Denver Arena",
+      "demand_index": 77.4,
+      "current_avg_price_usd": 191.39,
+      "agent_recommended_price_usd": 216.94,
+      "expected_attendance": 22002,
+      "capacity": 22823
+    },
+    {
+      "game_id": "G-2619",
+      "date": "2026-05-20",
+      "home_team_id": "BAY",
+      "away_team_id": "MIA",
+      "matchup": "Tides at Argonauts",
+      "venue": "Bay Area Arena",
+      "demand_index": 96.3,
+      "current_avg_price_usd": 127.22,
+      "agent_recommended_price_usd": 149.54,
+      "expected_attendance": 18530,
+      "capacity": 19340
+    }
+  ],
+  "agent_pricing_recommendations": [
+    {
+      "team_id": "BAY",
+      "game_id": "G-2608",
+      "current_price": 88.0,
+      "recommended_price": 112.0,
+      "lift_pct": 0.273,
+      "rationale": "Bay Argonauts vs Denver Sentinels \u2014 secondary market trading 38% premium; concurrent live demand signal +2.1 sigma; tier-A premium suites already 96% sold."
+    },
+    {
+      "team_id": "NYC",
+      "game_id": "G-2611",
+      "current_price": 142.0,
+      "recommended_price": 168.0,
+      "lift_pct": 0.183,
+      "rationale": "Bridges home opener \u2014 weather forecast clear, no competing local events, social anticipation index trending +47% week-over-week."
+    },
+    {
+      "team_id": "MIA",
+      "game_id": "G-2604",
+      "current_price": 96.0,
+      "recommended_price": 84.0,
+      "lift_pct": -0.125,
+      "rationale": "Tides midweek \u2014 soft demand cohort, no-show rate trending 19% in section 200s. Discount lifts paid attendance and concession revenue projection."
+    },
+    {
+      "team_id": "TOR",
+      "game_id": "G-2613",
+      "current_price": 74.0,
+      "recommended_price": 92.0,
+      "lift_pct": 0.243,
+      "rationale": "Sovereigns vs Montreal Royale rivalry \u2014 historic 98% sellout, secondary pricing already at 2.4x face value 72 hours out."
+    },
+    {
+      "team_id": "DEN",
+      "game_id": "G-2606",
+      "current_price": 102.0,
+      "recommended_price": 138.0,
+      "lift_pct": 0.353,
+      "rationale": "Sentinels with Marcus Reaves return from injury \u2014 social mention velocity 4.2x normal, secondary market last-trade $186."
+    }
+  ],
+  "agent_name": "Apex Ticket Pricing Agent v2.4",
+  "agent_decisions_24h": 1842,
+  "agent_revenue_lift_ytd_usd": 28400000
+}

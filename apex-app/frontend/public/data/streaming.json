@@ -1,0 +1,105 @@
+{
+  "generated_at": "2026-05-21T17:07:28.373528+00:00",
+  "subscribers_total": 14120000,
+  "subscribers_yoy": 0.182,
+  "monthly_churn_pct": 0.034,
+  "cac_usd": 28.4,
+  "ltv_usd": 412.0,
+  "ltv_cac_ratio": 14.5,
+  "arpu_usd_monthly": 14.99,
+  "avg_concurrent_viewers": 612400,
+  "peak_concurrent_24h": 2140000,
+  "top_concurrent_games": [
+    {
+      "game_id": "S-3100",
+      "matchup": "Ironworks home broadcast",
+      "concurrent_peak": 554272,
+      "total_minutes_watched": 83377076,
+      "completion_rate": 0.626
+    },
+    {
+      "game_id": "S-3101",
+      "matchup": "Cascades home broadcast",
+      "concurrent_peak": 1581657,
+      "total_minutes_watched": 68885476,
+      "completion_rate": 0.791
+    },
+    {
+      "game_id": "S-3102",
+      "matchup": "Monuments home broadcast",
+      "concurrent_peak": 435080,
+      "total_minutes_watched": 47528530,
+      "completion_rate": 0.825
+    },
+    {
+      "game_id": "S-3103",
+      "matchup": "Pickers home broadcast",
+      "concurrent_peak": 543467,
+      "total_minutes_watched": 68728046,
+      "completion_rate": 0.64
+    },
+    {
+      "game_id": "S-3104",
+      "matchup": "Hornets FC home broadcast",
+      "concurrent_peak": 485877,
+      "total_minutes_watched": 82349361,
+      "completion_rate": 0.641
+    },
+    {
+      "game_id": "S-3105",
+      "matchup": "Voyagers home broadcast",
+      "concurrent_peak": 919131,
+      "total_minutes_watched": 75376585,
+      "completion_rate": 0.814
+    },
+    {
+      "game_id": "S-3106",
+      "matchup": "Coyotes FC home broadcast",
+      "concurrent_peak": 869287,
+      "total_minutes_watched": 110374753,
+      "completion_rate": 0.658
+    },
+    {
+      "game_id": "S-3107",
+      "matchup": "Assembly home broadcast",
+      "concurrent_peak": 1617564,
+      "total_minutes_watched": 115337818,
+      "completion_rate": 0.757
+    },
+    {
+      "game_id": "S-3108",
+      "matchup": "Royale home broadcast",
+      "concurrent_peak": 1411896,
+      "total_minutes_watched": 92634663,
+      "completion_rate": 0.675
+    },
+    {
+      "game_id": "S-3109",
+      "matchup": "Northstars home broadcast",
+      "concurrent_peak": 623278,
+      "total_minutes_watched": 95854710,
+      "completion_rate": 0.723
+    }
+  ],
+  "cohort_a_churn_spike": {
+    "cohort": "Cohort A \u00b7 2025-Q3 acquired via Tier-3 markets",
+    "current_churn_pct": 0.072,
+    "baseline_churn_pct": 0.034,
+    "delta_pct_points": 3.8,
+    "subscribers_at_risk": 142800,
+    "estimated_arr_at_risk_usd": 25700000,
+    "agent_action": "Personalization agent surfacing highlight reels from 5 favorite teams + free preview of Apex+ tier for 30 days."
+  },
+  "content_agent": {
+    "name": "ApexTV Content Recommendation Agent v3.1",
+    "personalized_recs_24h": 18400000,
+    "click_through_rate": 0.247,
+    "avg_session_lift_minutes": 11.4
+  },
+  "personalization_agent": {
+    "name": "ApexTV Personalization Agent v2.0",
+    "highlight_reels_per_user_daily": 4.2,
+    "watch_completion_rate": 0.71,
+    "sample_recommendation": "Subscriber S-218492 (Denver market, Sentinels season-pass holder) \u2014 surfacing 4-minute Marcus Reaves highlight reel and condensed Sentinels vs Argonauts game from 2 nights ago."
+  }
+}

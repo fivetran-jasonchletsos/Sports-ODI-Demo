@@ -1,0 +1,256 @@
+{
+  "generated_at": "2026-05-21T17:07:28.373528+00:00",
+  "tables": [
+    {
+      "database": "bronze",
+      "table": "raw_ticketmaster_orders",
+      "rows": 84200000,
+      "bytes": 15492800000,
+      "partitions": [
+        "event_date"
+      ],
+      "source_system": "ticketmaster",
+      "last_updated_at": "2026-05-21T17:07:28.373528+00:00",
+      "schema_columns": 18
+    },
+    {
+      "database": "bronze",
+      "table": "raw_stubhub_listings",
+      "rows": 14800000,
+      "bytes": 2723200000,
+      "partitions": [
+        "listed_date"
+      ],
+      "source_system": "stubhub",
+      "last_updated_at": "2026-05-21T17:07:28.373528+00:00",
+      "schema_columns": 14
+    },
+    {
+      "database": "bronze",
+      "table": "raw_sfmc_journey_events",
+      "rows": 8400000,
+      "bytes": 1545600000,
+      "partitions": [
+        "event_date"
+      ],
+      "source_system": "sfmc",
+      "last_updated_at": "2026-05-21T17:07:28.373528+00:00",
+      "schema_columns": 22
+    },
+    {
+      "database": "bronze",
+      "table": "raw_apex_tv_play_events",
+      "rows": 142800000,
+      "bytes": 26275200000,
+      "partitions": [
+        "play_date"
+      ],
+      "source_system": "apex_tv",
+      "last_updated_at": "2026-05-21T17:07:28.373528+00:00",
+      "schema_columns": 28
+    },
+    {
+      "database": "bronze",
+      "table": "raw_apex_track_frames",
+      "rows": 38400000,
+      "bytes": 7065600000,
+      "partitions": [
+        "game_date"
+      ],
+      "source_system": "apex_track",
+      "last_updated_at": "2026-05-21T17:07:28.373528+00:00",
+      "schema_columns": 34
+    },
+    {
+      "database": "bronze",
+      "table": "raw_sponsorship_activations",
+      "rows": 184000,
+      "bytes": 33856000,
+      "partitions": [
+        "activation_date"
+      ],
+      "source_system": "sponsorship",
+      "last_updated_at": "2026-05-21T17:07:28.373528+00:00",
+      "schema_columns": 16
+    },
+    {
+      "database": "bronze",
+      "table": "raw_social_posts",
+      "rows": 18400000,
+      "bytes": 3385600000,
+      "partitions": [
+        "post_date",
+        "platform"
+      ],
+      "source_system": "derived",
+      "last_updated_at": "2026-05-21T17:07:28.373528+00:00",
+      "schema_columns": 24
+    },
+    {
+      "database": "bronze",
+      "table": "raw_sportsbook_wagers",
+      "rows": 24800000,
+      "bytes": 4563200000,
+      "partitions": [
+        "wager_date"
+      ],
+      "source_system": "sportsbook",
+      "last_updated_at": "2026-05-21T17:07:28.373528+00:00",
+      "schema_columns": 26
+    },
+    {
+      "database": "silver",
+      "table": "stg_ticket_orders",
+      "rows": 84200000,
+      "bytes": 15492800000,
+      "partitions": [
+        "event_date"
+      ],
+      "source_system": "derived",
+      "last_updated_at": "2026-05-21T17:07:28.373528+00:00",
+      "schema_columns": 22
+    },
+    {
+      "database": "silver",
+      "table": "stg_apex_tv_sessions",
+      "rows": 42800000,
+      "bytes": 7875200000,
+      "partitions": [
+        "session_date"
+      ],
+      "source_system": "derived",
+      "last_updated_at": "2026-05-21T17:07:28.373528+00:00",
+      "schema_columns": 18
+    },
+    {
+      "database": "silver",
+      "table": "stg_player_game_metrics",
+      "rows": 1240000,
+      "bytes": 228160000,
+      "partitions": [
+        "game_date"
+      ],
+      "source_system": "derived",
+      "last_updated_at": "2026-05-21T17:07:28.373528+00:00",
+      "schema_columns": 32
+    },
+    {
+      "database": "silver",
+      "table": "stg_social_sentiment",
+      "rows": 18400000,
+      "bytes": 3385600000,
+      "partitions": [
+        "post_date"
+      ],
+      "source_system": "derived",
+      "last_updated_at": "2026-05-21T17:07:28.373528+00:00",
+      "schema_columns": 14
+    },
+    {
+      "database": "silver",
+      "table": "stg_sportsbook_wagers",
+      "rows": 24800000,
+      "bytes": 4563200000,
+      "partitions": [
+        "wager_date"
+      ],
+      "source_system": "derived",
+      "last_updated_at": "2026-05-21T17:07:28.373528+00:00",
+      "schema_columns": 24
+    },
+    {
+      "database": "silver",
+      "table": "dim_teams",
+      "rows": 24,
+      "bytes": 4416,
+      "partitions": [],
+      "source_system": "derived",
+      "last_updated_at": "2026-05-21T17:07:28.373528+00:00",
+      "schema_columns": 18
+    },
+    {
+      "database": "silver",
+      "table": "dim_players",
+      "rows": 612,
+      "bytes": 112608,
+      "partitions": [],
+      "source_system": "derived",
+      "last_updated_at": "2026-05-21T17:07:28.373528+00:00",
+      "schema_columns": 22
+    },
+    {
+      "database": "silver",
+      "table": "dim_games",
+      "rows": 1008,
+      "bytes": 185472,
+      "partitions": [],
+      "source_system": "derived",
+      "last_updated_at": "2026-05-21T17:07:28.373528+00:00",
+      "schema_columns": 18
+    },
+    {
+      "database": "gold",
+      "table": "fct_team_performance",
+      "rows": 24,
+      "bytes": 4416,
+      "partitions": [],
+      "source_system": "derived",
+      "last_updated_at": "2026-05-21T17:07:28.373528+00:00",
+      "schema_columns": 42
+    },
+    {
+      "database": "gold",
+      "table": "fct_player_performance",
+      "rows": 612,
+      "bytes": 112608,
+      "partitions": [],
+      "source_system": "derived",
+      "last_updated_at": "2026-05-21T17:07:28.373528+00:00",
+      "schema_columns": 38
+    },
+    {
+      "database": "gold",
+      "table": "fct_ticket_demand",
+      "rows": 1008,
+      "bytes": 185472,
+      "partitions": [],
+      "source_system": "derived",
+      "last_updated_at": "2026-05-21T17:07:28.373528+00:00",
+      "schema_columns": 28
+    },
+    {
+      "database": "gold",
+      "table": "fct_apex_tv_subscriber_health",
+      "rows": 14120000,
+      "bytes": 2598080000,
+      "partitions": [
+        "cohort_month"
+      ],
+      "source_system": "derived",
+      "last_updated_at": "2026-05-21T17:07:28.373528+00:00",
+      "schema_columns": 26
+    },
+    {
+      "database": "gold",
+      "table": "fct_sponsorship_fulfillment",
+      "rows": 248,
+      "bytes": 45632,
+      "partitions": [],
+      "source_system": "derived",
+      "last_updated_at": "2026-05-21T17:07:28.373528+00:00",
+      "schema_columns": 32
+    },
+    {
+      "database": "gold",
+      "table": "fct_integrity_signals",
+      "rows": 412,
+      "bytes": 75808,
+      "partitions": [
+        "detection_date"
+      ],
+      "source_system": "derived",
+      "last_updated_at": "2026-05-21T17:07:28.373528+00:00",
+      "schema_columns": 28
+    }
+  ]
+}

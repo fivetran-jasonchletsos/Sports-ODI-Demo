@@ -1,0 +1,288 @@
+{
+  "generated_at": "2026-05-21T17:07:28.373528+00:00",
+  "platforms_monitored": [
+    "X/Twitter",
+    "Instagram",
+    "Reddit",
+    "TikTok"
+  ],
+  "posts_processed_24h": 18400000,
+  "trending_players": [
+    {
+      "player_id": "P-2006",
+      "name": "Rafael Lindqvist",
+      "team_id": "ORL",
+      "mentions_24h": 404076,
+      "sentiment_score": 0.143,
+      "primary_topic": "game performance"
+    },
+    {
+      "player_id": "P-2042",
+      "name": "Otis Naranjo",
+      "team_id": "DET",
+      "mentions_24h": 400509,
+      "sentiment_score": 0.489,
+      "primary_topic": "game performance"
+    },
+    {
+      "player_id": "P-2038",
+      "name": "Kelvin Jorgensen",
+      "team_id": "NSH",
+      "mentions_24h": 400434,
+      "sentiment_score": -0.32,
+      "primary_topic": "highlight clip"
+    },
+    {
+      "player_id": "P-2043",
+      "name": "Preston Ostrowski",
+      "team_id": "DEN",
+      "mentions_24h": 394968,
+      "sentiment_score": 0.657,
+      "primary_topic": "game performance"
+    },
+    {
+      "player_id": "P-2041",
+      "name": "Nolan Maitland",
+      "team_id": "SEA",
+      "mentions_24h": 393267,
+      "sentiment_score": -0.072,
+      "primary_topic": "trade rumor"
+    },
+    {
+      "player_id": "P-2010",
+      "name": "Mateo Castellanos",
+      "team_id": "AUS",
+      "mentions_24h": 384522,
+      "sentiment_score": 0.308,
+      "primary_topic": "trade rumor"
+    },
+    {
+      "player_id": "P-2026",
+      "name": "Augustin Espinoza",
+      "team_id": "CHI",
+      "mentions_24h": 380778,
+      "sentiment_score": 0.157,
+      "primary_topic": "highlight clip"
+    },
+    {
+      "player_id": "P-2002",
+      "name": "Kai Sterling",
+      "team_id": "PHI",
+      "mentions_24h": 373217,
+      "sentiment_score": 0.211,
+      "primary_topic": "game performance"
+    },
+    {
+      "player_id": "P-2003",
+      "name": "Jaylen Vasquez",
+      "team_id": "NYC",
+      "mentions_24h": 363657,
+      "sentiment_score": 0.185,
+      "primary_topic": "injury update"
+    },
+    {
+      "player_id": "P-2008",
+      "name": "Jamarion Petrov",
+      "team_id": "PHI",
+      "mentions_24h": 355918,
+      "sentiment_score": -0.271,
+      "primary_topic": "injury update"
+    }
+  ],
+  "team_sentiment": [
+    {
+      "team_id": "CHI",
+      "name": "Ironworks",
+      "sentiment_volume_24h": 394660,
+      "sentiment_score": -0.094,
+      "trend_7d_pct": 0.278
+    },
+    {
+      "team_id": "POR",
+      "name": "Cascades",
+      "sentiment_volume_24h": 306272,
+      "sentiment_score": 0.687,
+      "trend_7d_pct": -0.017
+    },
+    {
+      "team_id": "WAS",
+      "name": "Monuments",
+      "sentiment_volume_24h": 207004,
+      "sentiment_score": -0.057,
+      "trend_7d_pct": 0.197
+    },
+    {
+      "team_id": "NSH",
+      "name": "Pickers",
+      "sentiment_volume_24h": 55167,
+      "sentiment_score": 0.371,
+      "trend_7d_pct": 0.118
+    },
+    {
+      "team_id": "CLT",
+      "name": "Hornets FC",
+      "sentiment_volume_24h": 53623,
+      "sentiment_score": 0.449,
+      "trend_7d_pct": 0.157
+    },
+    {
+      "team_id": "HOU",
+      "name": "Voyagers",
+      "sentiment_volume_24h": 151866,
+      "sentiment_score": 0.095,
+      "trend_7d_pct": 0.06
+    },
+    {
+      "team_id": "PHX",
+      "name": "Coyotes FC",
+      "sentiment_volume_24h": 344154,
+      "sentiment_score": 0.005,
+      "trend_7d_pct": 0.089
+    },
+    {
+      "team_id": "DET",
+      "name": "Assembly",
+      "sentiment_volume_24h": 281945,
+      "sentiment_score": -0.008,
+      "trend_7d_pct": 0.221
+    },
+    {
+      "team_id": "MTL",
+      "name": "Royale",
+      "sentiment_volume_24h": 305968,
+      "sentiment_score": -0.032,
+      "trend_7d_pct": 0.181
+    },
+    {
+      "team_id": "MSP",
+      "name": "Northstars",
+      "sentiment_volume_24h": 402684,
+      "sentiment_score": -0.234,
+      "trend_7d_pct": 0.276
+    },
+    {
+      "team_id": "ATL",
+      "name": "Foundry",
+      "sentiment_volume_24h": 138264,
+      "sentiment_score": 0.328,
+      "trend_7d_pct": 0.368
+    },
+    {
+      "team_id": "ORL",
+      "name": "Starliners",
+      "sentiment_volume_24h": 324917,
+      "sentiment_score": 0.631,
+      "trend_7d_pct": 0.322
+    },
+    {
+      "team_id": "LAX",
+      "name": "Mavericks",
+      "sentiment_volume_24h": 249940,
+      "sentiment_score": 0.229,
+      "trend_7d_pct": -0.272
+    },
+    {
+      "team_id": "KCM",
+      "name": "Stockyards",
+      "sentiment_volume_24h": 389346,
+      "sentiment_score": -0.204,
+      "trend_7d_pct": -0.188
+    },
+    {
+      "team_id": "SEA",
+      "name": "Tidewater",
+      "sentiment_volume_24h": 369076,
+      "sentiment_score": 0.688,
+      "trend_7d_pct": 0.243
+    },
+    {
+      "team_id": "NYC",
+      "name": "Bridges",
+      "sentiment_volume_24h": 228002,
+      "sentiment_score": 0.486,
+      "trend_7d_pct": -0.023
+    },
+    {
+      "team_id": "PHI",
+      "name": "Liberty",
+      "sentiment_volume_24h": 146165,
+      "sentiment_score": -0.183,
+      "trend_7d_pct": 0.248
+    },
+    {
+      "team_id": "BOS",
+      "name": "Harborfront",
+      "sentiment_volume_24h": 376153,
+      "sentiment_score": 0.225,
+      "trend_7d_pct": -0.212
+    },
+    {
+      "team_id": "DEN",
+      "name": "Sentinels",
+      "sentiment_volume_24h": 294785,
+      "sentiment_score": 0.713,
+      "trend_7d_pct": 0.211
+    },
+    {
+      "team_id": "BAY",
+      "name": "Argonauts",
+      "sentiment_volume_24h": 316861,
+      "sentiment_score": 0.66,
+      "trend_7d_pct": -0.107
+    },
+    {
+      "team_id": "MIA",
+      "name": "Tides",
+      "sentiment_volume_24h": 75158,
+      "sentiment_score": -0.01,
+      "trend_7d_pct": 0.199
+    },
+    {
+      "team_id": "AUS",
+      "name": "Lonestars",
+      "sentiment_volume_24h": 80545,
+      "sentiment_score": -0.163,
+      "trend_7d_pct": 0.362
+    },
+    {
+      "team_id": "STL",
+      "name": "Riverkings",
+      "sentiment_volume_24h": 20855,
+      "sentiment_score": 0.542,
+      "trend_7d_pct": 0.398
+    },
+    {
+      "team_id": "TOR",
+      "name": "Sovereigns",
+      "sentiment_volume_24h": 205024,
+      "sentiment_score": 0.537,
+      "trend_7d_pct": -0.318
+    }
+  ],
+  "controversy_alerts": [
+    {
+      "id": "C-411",
+      "team_id": "PHI",
+      "subject": "Liberty front-office decision",
+      "summary": "Coaching staff change announcement generated -0.42 sentiment shift; mention volume +218% over 6 hours.",
+      "severity": "elevated",
+      "first_detected": "2026-05-19T22:14:00Z"
+    },
+    {
+      "id": "C-412",
+      "team_id": "LAX",
+      "subject": "Officiating dispute",
+      "summary": "End-of-game call vs Mavericks drawing sustained negative sentiment; volume normalizing after 48h.",
+      "severity": "moderate",
+      "first_detected": "2026-05-18T03:42:00Z"
+    },
+    {
+      "id": "C-413",
+      "team_id": "DEN",
+      "subject": "Player health concern",
+      "summary": "Marcus Reaves visible discomfort in 2nd half \u2014 sentiment positive but anxious; agent flagged for player perf desk.",
+      "severity": "moderate",
+      "first_detected": "2026-05-20T01:08:00Z"
+    }
+  ]
+}

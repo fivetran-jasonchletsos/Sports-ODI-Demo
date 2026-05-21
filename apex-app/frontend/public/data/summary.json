@@ -1,0 +1,31 @@
+{
+  "generated_at": "2026-05-21T17:07:28.373528+00:00",
+  "source": "demo",
+  "league_name": "Apex Sports League",
+  "season": "2025-26",
+  "total_teams": 24,
+  "regular_season_attendance": 5214800,
+  "regular_season_attendance_yoy": 0.041,
+  "avg_ticket_price_usd": 78.4,
+  "avg_ticket_price_yoy": 0.063,
+  "apex_tv_subscribers": 14120000,
+  "apex_tv_subscribers_yoy": 0.182,
+  "apex_tv_avg_concurrent": 612400,
+  "sponsorship_revenue_ytd_usd": 1842000000,
+  "sponsorship_revenue_yoy": 0.094,
+  "social_followers_total": 184500000,
+  "social_followers_yoy": 0.121,
+  "top_trending_player": {
+    "player_id": "P-2041",
+    "name": "Marcus Reaves",
+    "team_id": "DEN",
+    "trend_score": 94.7,
+    "mentions_24h": 412800
+  },
+  "iceberg_table_count": 22,
+  "s3_bytes": 4812300000000,
+  "last_sync_at": "2026-05-21T17:07:28.373528+00:00",
+  "annual_revenue_usd": 11000000000,
+  "sportsbook_handle_ytd_usd": 9420000000,
+  "sportsbook_handle_yoy": 0.236
+}
