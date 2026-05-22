@@ -224,6 +224,7 @@ export interface PipelineLayer {
 
 export interface PipelineConnector {
   id: string;
+  fivetran_id: string;
   name: string;
   service: string;
   last_sync: string;

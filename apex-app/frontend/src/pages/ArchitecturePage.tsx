@@ -102,8 +102,8 @@ export default function ArchitecturePage() {
       <section>
         <h2 className="font-display text-2xl font-extrabold text-[var(--ink-strong)] border-b border-[var(--hairline)] pb-2 mb-4 uppercase tracking-tight">Compute engines</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          <Engine name="Snowflake" status="primary" desc="Reads the gold-layer Iceberg externals. Powers the league office BI and the Cortex agent layer." sample="SELECT * FROM gold.fct_integrity_signals WHERE severity = 'high';" />
-          <Engine name="AWS Athena" status="available" desc="Ad-hoc queries from the data-eng team. Same Iceberg files, no extraction." sample="SELECT team_id, AVG(no_show_rate) FROM gold.fct_ticket_demand GROUP BY team_id;" />
+          <Engine name="Snowflake" status="primary" desc="Reads the gold-layer Iceberg externals. Powers the league office BI and the Cortex agent layer." sample="SELECT * FROM fct_integrity_signals WHERE severity = 'high';" />
+          <Engine name="AWS Athena" status="available" desc="Ad-hoc queries from the data-eng team. Same Iceberg files, no extraction." sample="SELECT team_id, AVG(no_show_rate) FROM fct_ticket_demand GROUP BY team_id;" />
           <Engine name="DuckDB" status="demo" desc="Analyst notebook on a laptop reading the same Iceberg partition. Zero infra." sample="SELECT * FROM iceberg_scan('s3://apex-odi-lake/gold/fct_team_performance');" />
         </div>
       </section>

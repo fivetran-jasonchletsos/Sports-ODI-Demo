@@ -36,7 +36,7 @@ export default function IntegrityPage() {
             <div>
               <div className="eyebrow-light mb-1" style={{ color: 'var(--crimson-bright)' }}>{data.integrity_agent.name}</div>
               <p className="text-sm text-white/70 mt-1 max-w-xl">
-                Reads gold.fct_integrity_signals. Scores wagers in stream. False-positive rate
+                Reads the gold integrity signals mart. Scores wagers in stream. False-positive rate
                 tracked against integrity-desk dispositions to keep the noise floor low.
               </p>
             </div>

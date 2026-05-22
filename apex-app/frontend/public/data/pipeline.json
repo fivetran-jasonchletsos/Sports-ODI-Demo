@@ -37,6 +37,7 @@
   "connectors": [
     {
       "id": "ticketmaster",
+      "fivetran_id": "apex_ticketmaster_primary",
       "name": "Ticketmaster (primary)",
       "service": "connector_sdk",
       "last_sync": "2026-05-21T17:07:28.373528+00:00",
@@ -45,6 +46,7 @@
     },
     {
       "id": "stubhub",
+      "fivetran_id": "apex_stubhub_secondary",
       "name": "StubHub (secondary)",
       "service": "connector_sdk",
       "last_sync": "2026-05-21T17:07:28.373528+00:00",
@@ -53,6 +55,7 @@
     },
     {
       "id": "sfmc",
+      "fivetran_id": "apex_sfmc_fan_crm",
       "name": "Salesforce Marketing Cloud",
       "service": "salesforce_marketing_cloud",
       "last_sync": "2026-05-21T17:07:28.373528+00:00",
@@ -61,6 +64,7 @@
     },
     {
       "id": "apex_tv",
+      "fivetran_id": "apex_tv_telemetry",
       "name": "ApexTV streaming telemetry",
       "service": "connector_sdk",
       "last_sync": "2026-05-21T17:07:28.373528+00:00",
@@ -69,6 +73,7 @@
     },
     {
       "id": "apex_track",
+      "fivetran_id": "apex_track_optical",
       "name": "ApexTrack player tracking",
       "service": "connector_sdk",
       "last_sync": "2026-05-21T17:07:28.373528+00:00",
@@ -77,6 +82,7 @@
     },
     {
       "id": "sponsorship",
+      "fivetran_id": "apex_sponsorship_mgmt",
       "name": "Sponsorship management system",
       "service": "connector_sdk",
       "last_sync": "2026-05-21T17:07:28.373528+00:00",
@@ -85,6 +91,7 @@
     },
     {
       "id": "twitter_x",
+      "fivetran_id": "apex_twitter_ads",
       "name": "X/Twitter API",
       "service": "twitter_ads",
       "last_sync": "2026-05-21T17:07:28.373528+00:00",
@@ -93,6 +100,7 @@
     },
     {
       "id": "instagram",
+      "fivetran_id": "apex_instagram_business",
       "name": "Instagram (Meta)",
       "service": "instagram_business",
       "last_sync": "2026-05-21T17:07:28.373528+00:00",
@@ -101,6 +109,7 @@
     },
     {
       "id": "reddit",
+      "fivetran_id": "apex_reddit_api",
       "name": "Reddit API",
       "service": "connector_sdk",
       "last_sync": "2026-05-21T17:07:28.373528+00:00",
@@ -109,6 +118,7 @@
     },
     {
       "id": "tiktok",
+      "fivetran_id": "apex_tiktok_ads",
       "name": "TikTok for Business",
       "service": "tiktok_ads",
       "last_sync": "2026-05-21T17:07:28.373528+00:00",
@@ -117,6 +127,7 @@
     },
     {
       "id": "sportsbook",
+      "fivetran_id": "apex_sportsbook_feeds",
       "name": "Sportsbook partner feeds",
       "service": "connector_sdk",
       "last_sync": "2026-05-21T17:07:28.373528+00:00",

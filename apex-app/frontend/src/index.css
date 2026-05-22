@@ -50,6 +50,9 @@
   --silver-bg:     #f8fafc;
   --gold-layer:    #b8910f;
   --gold-layer-bg: #fef9c3;
+
+  /* noise SVG as data URI — adds broadcast grain to dark surfaces */
+  --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
 }
 
 @theme {
@@ -84,11 +87,28 @@ h1, h2, h3, .font-display {
 }
 h1 { color: var(--ink-strong); }
 
-.broadcast-rail {
-  height: 3px;
-  background: linear-gradient(90deg, var(--crimson) 0%, var(--gold) 50%, var(--crimson) 100%);
+/* ─── Broadcast rail ─── */
+/* Animated gradient + ticker crawl feel */
+@keyframes rail-sweep {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
 }
 
+.broadcast-rail {
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--crimson) 0%,
+    var(--gold) 25%,
+    var(--crimson-bright) 50%,
+    var(--gold-bright) 75%,
+    var(--crimson) 100%
+  );
+  background-size: 200% 100%;
+  animation: rail-sweep 4s linear infinite;
+}
+
+/* ─── Scoreboard ─── */
 .scoreboard {
   font-family: "Saira Condensed", Impact, sans-serif;
   font-weight: 800;
@@ -96,6 +116,7 @@ h1 { color: var(--ink-strong); }
   font-variant-numeric: tabular-nums;
 }
 
+/* ─── Stat mono ─── */
 .stat-mono {
   font-family: "JetBrains Mono", monospace;
   font-weight: 600;
@@ -103,6 +124,7 @@ h1 { color: var(--ink-strong); }
   letter-spacing: -0.01em;
 }
 
+/* ─── Status pills ─── */
 .status-pill {
   display: inline-flex;
   align-items: center;
@@ -131,6 +153,7 @@ h1 { color: var(--ink-strong); }
 .status-pill.gold    { background: var(--gold-bg);    color: var(--gold-dim); border-color: #fef08a; }
 .status-pill.crimson { background: var(--crimson-bg); color: var(--crimson-dim); border-color: #fecaca; }
 
+/* ─── Layer chips ─── */
 .layer-chip {
   display: inline-flex;
   align-items: center;
@@ -147,11 +170,20 @@ h1 { color: var(--ink-strong); }
 .layer-chip.silver { background: var(--silver-bg); color: var(--silver); border: 1px solid #e2e8f0; }
 .layer-chip.gold   { background: var(--gold-layer-bg); color: var(--gold-layer); border: 1px solid #fef08a; }
 
+/* ─── Broadcast card ─── */
+/* Adds a thin left-accent stripe on hover — broadcast graphics often
+   use a colored left rule to signal "live" or "selected" state. */
 .broadcast-card {
   background: var(--card);
   border: 1px solid var(--hairline);
+  border-left: 3px solid var(--hairline);
   border-radius: 0.375rem;
   box-shadow: 0 1px 2px rgba(10, 14, 26, 0.04);
+  transition: border-left-color 0.18s ease, box-shadow 0.18s ease;
+}
+.broadcast-card:hover {
+  border-left-color: var(--gold);
+  box-shadow: 0 2px 12px rgba(250, 204, 21, 0.10), 0 1px 3px rgba(10, 14, 26, 0.08);
 }
 .broadcast-card-header {
   padding: 0.875rem 1rem;
@@ -159,6 +191,7 @@ h1 { color: var(--ink-strong); }
   background: linear-gradient(180deg, #ffffff 0%, var(--paper) 100%);
 }
 
+/* ─── Eyebrows ─── */
 .eyebrow {
   font-size: 0.6875rem;
   font-weight: 800;
@@ -184,11 +217,19 @@ h1 { color: var(--ink-strong); }
   font-family: "Saira Condensed", sans-serif;
 }
 
+/* ─── KPI tiles ─── */
+/* On light backgrounds the value is already readable.
+   Extra glow variant for dark-surface KPIs is handled via .kpi-tile--dark below. */
 .kpi-tile {
   background: var(--card);
   border: 1px solid var(--hairline);
+  border-left: 3px solid var(--hairline);
   border-radius: 0.375rem;
   padding: 1rem 1.125rem;
+  transition: border-left-color 0.18s ease;
+}
+.kpi-tile:hover {
+  border-left-color: var(--gold);
 }
 .kpi-label {
   font-size: 0.6875rem;
@@ -209,11 +250,171 @@ h1 { color: var(--ink-strong); }
   letter-spacing: -0.01em;
 }
 
+/* KPI on dark background (court-black sections) */
+.kpi-tile--dark {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.10);
+  border-left-color: rgba(250,204,21,0.35);
+}
+.kpi-tile--dark .kpi-label { color: rgba(255,255,255,0.55); }
+.kpi-tile--dark .kpi-value {
+  color: #fff;
+  text-shadow: 0 0 18px rgba(250,204,21,0.45), 0 0 40px rgba(250,204,21,0.18);
+}
+
+/* ─── Number glow — for standalone large stats on dark surfaces ─── */
+/* Usage: add class "stat-glow" to any scoreboard/kpi-value element
+   rendered on a court-black background. */
+.stat-glow {
+  text-shadow:
+    0 0 12px rgba(250, 204, 21, 0.55),
+    0 0 32px rgba(250, 204, 21, 0.22);
+}
+.stat-glow-crimson {
+  text-shadow:
+    0 0 12px rgba(220, 38, 38, 0.60),
+    0 0 32px rgba(220, 38, 38, 0.24);
+}
+
+/* ─── Dark surface noise/grain overlay ─── */
+/* Overlay onto any dark section's ::after pseudo-element or
+   directly as a bg-image utility on a child. Using a class keeps it
+   opt-in so light cards aren't affected. */
+.court-noise {
+  position: relative;
+  isolation: isolate;
+}
+.court-noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--noise);
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  opacity: 0.55;
+  z-index: 0;
+}
+.court-noise > * { position: relative; z-index: 1; }
+
+/* Inline version for sections that can't use ::after easily (e.g. svg wrappers) */
+.court-grain-bg {
+  background-image: var(--noise);
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* ─── Broadcast section divider ─── */
+/* A tight gold/crimson double-rule used between major page sections.
+   Usage: <div class="broadcast-divider" /> */
+.broadcast-divider {
+  position: relative;
+  height: 6px;
+  margin: 0.25rem 0;
+  overflow: hidden;
+}
+.broadcast-divider::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 3px;
+  background: var(--crimson);
+  opacity: 0.85;
+}
+.broadcast-divider::after {
+  content: "";
+  position: absolute;
+  inset: 3px 0 0;
+  background: var(--gold);
+  opacity: 0.9;
+}
+
+/* Inline/horizontal version that fits inside page headers */
+.broadcast-rule {
+  display: block;
+  width: 3rem;
+  height: 3px;
+  margin-top: 0.5rem;
+  background: linear-gradient(90deg, var(--crimson) 0%, var(--gold) 100%);
+  border-radius: 1px;
+}
+
+/* ─── "Open in Fivetran" CTA pulse ─── */
+/* The PipelinePage connector table deep-link gets a subtle gold pulse
+   so it reads as actionable at a glance. */
+@keyframes fivetran-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(250,204,21,0); }
+  50%       { box-shadow: 0 0 0 3px rgba(250,204,21,0.22); }
+}
+
+.fivetran-cta {
+  animation: fivetran-pulse 2.8s ease-in-out infinite;
+  border-color: rgba(250,204,21,0.55) !important;
+}
+.fivetran-cta:hover {
+  animation: none;
+  background: rgba(250,204,21,0.18) !important;
+  box-shadow: 0 0 0 2px rgba(250,204,21,0.35);
+}
+
+/* ─── Ticker / marquee ─── */
+/* For a live-data strip or scrolling alert bar. */
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker-scroll 28s linear infinite;
+  white-space: nowrap;
+}
+.ticker-track:hover { animation-play-state: paused; }
+.ticker-wrap {
+  overflow: hidden;
+  position: relative;
+}
+/* Fade edges */
+.ticker-wrap::before,
+.ticker-wrap::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 3rem;
+  z-index: 2;
+  pointer-events: none;
+}
+.ticker-wrap::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--court-black), transparent);
+}
+.ticker-wrap::after {
+  right: 0;
+  background: linear-gradient(-90deg, var(--court-black), transparent);
+}
+
+/* ─── Layer card — broadcast pipeline feel ─── */
+/* The four-stage layer cards in PipelinePage.
+   A solid left-rule color per layer tier telegraphs status at a glance
+   like a TV graphics lower-third. */
+.layer-card-connectors { border-left-color: var(--crimson) !important; }
+.layer-card-iceberg    { border-left-color: #38bdf8 !important; }  /* sky blue — S3/lake */
+.layer-card-dbt        { border-left-color: var(--gold) !important; }
+.layer-card-snowflake  { border-left-color: #818cf8 !important; }  /* indigo — compute */
+
+/* Failed state overrides */
+.layer-card-failed {
+  border-left-color: var(--crimson) !important;
+  box-shadow: inset 3px 0 0 var(--crimson), 0 0 0 1px rgba(220,38,38,0.18);
+}
+
+/* ─── Scrollbars ─── */
 ::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: var(--paper-deep); }
 ::-webkit-scrollbar-thumb { background: #b8b8a8; border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: #8a8a7a; }
 
+/* ─── Focus ─── */
 *:focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: 2px;
@@ -222,8 +423,46 @@ h1 { color: var(--ink-strong); }
 
 .tabular { font-variant-numeric: tabular-nums; }
 
-/* Scoreboard divider */
+/* ─── Scoreboard divider ─── */
 .score-divider {
   background: linear-gradient(90deg, transparent 0%, var(--court-black) 15%, var(--court-black) 85%, transparent 100%);
   height: 1px;
+}
+
+/* ─── Page-load entry animation ─── */
+/* Staggered fade-up for content sections. Apply .animate-enter to each
+   major section and add inline style="--delay: Xms" for stagger. */
+@keyframes enter-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-enter {
+  opacity: 0;
+  animation: enter-up 0.45s ease forwards;
+  animation-delay: var(--delay, 0ms);
+}
+
+/* ─── Table row hover ─── */
+/* For dark-background connector/pipeline tables — a slightly brighter
+   row on hover reinforces the "live scoreboard" reading pattern. */
+.table-row-hover:hover {
+  background: rgba(255,255,255,0.04);
+}
+
+/* ─── Jersey-stripe accent ─── */
+/* Narrow vertical candy-stripe — can be placed as a decorative
+   aside element next to headings or stat callouts. */
+.jersey-stripe {
+  display: inline-block;
+  width: 6px;
+  border-radius: 2px;
+  background: repeating-linear-gradient(
+    180deg,
+    var(--crimson) 0px,
+    var(--crimson) 8px,
+    var(--gold) 8px,
+    var(--gold) 12px,
+    var(--court-black) 12px,
+    var(--court-black) 16px
+  );
 }

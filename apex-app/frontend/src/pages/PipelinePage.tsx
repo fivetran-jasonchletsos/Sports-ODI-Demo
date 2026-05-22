@@ -20,7 +20,7 @@ export default function PipelinePage() {
       ? { ok: false, status: 'commit failed', detail: 'S3 + AWS Glue Iceberg catalog', failureDetail: 'Simulated: Glue catalog returned 503 during last Iceberg commit on raw_apex_tv_play_events. Last good snapshot held; replay queued.' }
       : { ok: true, status: 'committed', detail: 'apex-odi-lake bucket. 22 Iceberg tables across bronze, silver, gold.' },
     dbt: failures.has('dbt')
-      ? { ok: false, status: 'run failed', detail: 'dbt build — gold.fct_integrity_signals', failureDetail: 'Simulated: model compilation failed. Test "unique_flag_id" returned 2 failures in silver.stg_sportsbook_wagers. Held the gold deploy.' }
+      ? { ok: false, status: 'run failed', detail: 'dbt build — integrity signals gold model', failureDetail: 'Simulated: model compilation failed. Test "unique_flag_id" returned 2 failures in silver.stg_sportsbook_wagers. Held the gold deploy.' }
       : { ok: true, status: 'last run passed', detail: 'dbt build completed 8m ago. 13 silver + 6 gold models passed all tests.' },
     snowflake: failures.has('snowflake')
       ? { ok: false, status: 'query failed', detail: 'Snowflake reading Iceberg externals', failureDetail: 'Simulated: warehouse APEX_AGENTS_XS hit credit limit on the integrity-agent query. Auto-suspend triggered. Scale out queued.' }
@@ -88,20 +88,34 @@ export default function PipelinePage() {
             <thead className="text-[10px] font-display font-bold uppercase tracking-wider text-white/60 bg-white/5">
               <tr>
                 <th className="text-left px-4 py-2">Source</th>
-                <th className="text-left px-4 py-2">Connector</th>
+                <th className="text-left px-4 py-2">Connector ID</th>
                 <th className="text-right px-4 py-2">Rows · 24h</th>
                 <th className="text-left px-4 py-2">Last sync</th>
                 <th className="text-left px-4 py-2">Status</th>
+                <th className="text-left px-4 py-2">Fivetran</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-white/10">
               {(data?.connectors ?? []).map((c) => (
                 <tr key={c.id}>
                   <td className="px-4 py-2 font-display font-bold uppercase tracking-wide">{c.name}</td>
-                  <td className="px-4 py-2 font-mono text-[11px] text-[var(--gold)]">{c.service}</td>
+                  <td className="px-4 py-2 font-mono text-[11px] text-[var(--gold)]">{c.fivetran_id}</td>
                   <td className="px-4 py-2 text-right stat-mono">{fmtNumber(c.rows_24h)}</td>
                   <td className="px-4 py-2 text-[11px] text-white/60 stat-mono">{new Date(c.last_sync).toLocaleString()}</td>
                   <td className="px-4 py-2"><span className="status-pill bull">{c.status}</span></td>
+                  <td className="px-4 py-2">
+                    <a
+                      href={`https://fivetran.com/dashboard/connectors/${c.fivetran_id}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="fivetran-cta inline-flex items-center gap-1 text-[10px] font-display font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm border border-[var(--gold)]/40 text-[var(--gold)] transition-colors"
+                    >
+                      Open in Fivetran
+                      <svg viewBox="0 0 12 12" className="h-2.5 w-2.5 shrink-0" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
+                        <path d="M2 10 L10 2M6 2h4v4" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </a>
+                  </td>
                 </tr>
               ))}
             </tbody>
