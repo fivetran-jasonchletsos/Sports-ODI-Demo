@@ -37,7 +37,7 @@
   "connectors": [
     {
       "id": "ticketmaster",
-      "fivetran_id": "apex_ticketmaster_primary",
+      "fivetran_id": "shadow_retiring",
       "name": "Ticketmaster (primary)",
       "service": "connector_sdk",
       "last_sync": "2026-05-21T17:07:28.373528+00:00",
@@ -46,7 +46,7 @@
     },
     {
       "id": "stubhub",
-      "fivetran_id": "apex_stubhub_secondary",
+      "fivetran_id": "nibble_daffodil",
       "name": "StubHub (secondary)",
       "service": "connector_sdk",
       "last_sync": "2026-05-21T17:07:28.373528+00:00",
@@ -55,7 +55,7 @@
     },
     {
       "id": "sfmc",
-      "fivetran_id": "apex_sfmc_fan_crm",
+      "fivetran_id": "celtic_distributing",
       "name": "Salesforce Marketing Cloud",
       "service": "salesforce_marketing_cloud",
       "last_sync": "2026-05-21T17:07:28.373528+00:00",
@@ -64,7 +64,7 @@
     },
     {
       "id": "apex_tv",
-      "fivetran_id": "apex_tv_telemetry",
+      "fivetran_id": "discussed_sur",
       "name": "ApexTV streaming telemetry",
       "service": "connector_sdk",
       "last_sync": "2026-05-21T17:07:28.373528+00:00",
@@ -73,7 +73,7 @@
     },
     {
       "id": "apex_track",
-      "fivetran_id": "apex_track_optical",
+      "fivetran_id": "exchange_freeway",
       "name": "ApexTrack player tracking",
       "service": "connector_sdk",
       "last_sync": "2026-05-21T17:07:28.373528+00:00",
@@ -82,7 +82,7 @@
     },
     {
       "id": "sponsorship",
-      "fivetran_id": "apex_sponsorship_mgmt",
+      "fivetran_id": "mirrored_customary",
       "name": "Sponsorship management system",
       "service": "connector_sdk",
       "last_sync": "2026-05-21T17:07:28.373528+00:00",
@@ -91,7 +91,7 @@
     },
     {
       "id": "twitter_x",
-      "fivetran_id": "apex_twitter_ads",
+      "fivetran_id": "outburst_intended",
       "name": "X/Twitter API",
       "service": "twitter_ads",
       "last_sync": "2026-05-21T17:07:28.373528+00:00",
@@ -100,7 +100,7 @@
     },
     {
       "id": "instagram",
-      "fivetran_id": "apex_instagram_business",
+      "fivetran_id": "unveiled_heat",
       "name": "Instagram (Meta)",
       "service": "instagram_business",
       "last_sync": "2026-05-21T17:07:28.373528+00:00",
@@ -109,7 +109,7 @@
     },
     {
       "id": "reddit",
-      "fivetran_id": "apex_reddit_api",
+      "fivetran_id": "retry_recast",
       "name": "Reddit API",
       "service": "connector_sdk",
       "last_sync": "2026-05-21T17:07:28.373528+00:00",
@@ -118,7 +118,7 @@
     },
     {
       "id": "tiktok",
-      "fivetran_id": "apex_tiktok_ads",
+      "fivetran_id": "proverb_foxes",
       "name": "TikTok for Business",
       "service": "tiktok_ads",
       "last_sync": "2026-05-21T17:07:28.373528+00:00",
@@ -127,7 +127,7 @@
     },
     {
       "id": "sportsbook",
-      "fivetran_id": "apex_sportsbook_feeds",
+      "fivetran_id": "perjury_retreat",
       "name": "Sportsbook partner feeds",
       "service": "connector_sdk",
       "last_sync": "2026-05-21T17:07:28.373528+00:00",
