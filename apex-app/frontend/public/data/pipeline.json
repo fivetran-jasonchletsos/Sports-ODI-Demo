@@ -37,7 +37,7 @@
   "connectors": [
     {
       "id": "ticketmaster",
-      "fivetran_id": "shadow_retiring",
+      "fivetran_id": "reverie_embarkation",
       "name": "Ticketmaster (primary)",
       "service": "connector_sdk",
       "last_sync": "2026-05-21T17:07:28.373528+00:00",
@@ -46,7 +46,7 @@
     },
     {
       "id": "stubhub",
-      "fivetran_id": "nibble_daffodil",
+      "fivetran_id": "backboard_gait",
       "name": "StubHub (secondary)",
       "service": "connector_sdk",
       "last_sync": "2026-05-21T17:07:28.373528+00:00",
@@ -64,7 +64,7 @@
     },
     {
       "id": "apex_tv",
-      "fivetran_id": "discussed_sur",
+      "fivetran_id": "lore_portal",
       "name": "ApexTV streaming telemetry",
       "service": "connector_sdk",
       "last_sync": "2026-05-21T17:07:28.373528+00:00",
@@ -73,7 +73,7 @@
     },
     {
       "id": "apex_track",
-      "fivetran_id": "exchange_freeway",
+      "fivetran_id": "radically_inoculation",
       "name": "ApexTrack player tracking",
       "service": "connector_sdk",
       "last_sync": "2026-05-21T17:07:28.373528+00:00",
@@ -82,7 +82,7 @@
     },
     {
       "id": "sponsorship",
-      "fivetran_id": "mirrored_customary",
+      "fivetran_id": "nom_fun",
       "name": "Sponsorship management system",
       "service": "connector_sdk",
       "last_sync": "2026-05-21T17:07:28.373528+00:00",
@@ -127,7 +127,7 @@
     },
     {
       "id": "sportsbook",
-      "fivetran_id": "perjury_retreat",
+      "fivetran_id": "cable_retirement",
       "name": "Sportsbook partner feeds",
       "service": "connector_sdk",
       "last_sync": "2026-05-21T17:07:28.373528+00:00",
