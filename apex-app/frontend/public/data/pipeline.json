@@ -109,7 +109,7 @@
     },
     {
       "id": "reddit",
-      "fivetran_id": "retry_recast",
+      "fivetran_id": "brotherhood_irresistibly",
       "name": "Reddit API",
       "service": "connector_sdk",
       "last_sync": "2026-05-21T17:07:28.373528+00:00",
