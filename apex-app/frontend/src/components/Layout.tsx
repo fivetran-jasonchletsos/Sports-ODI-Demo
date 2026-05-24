@@ -1,32 +1,156 @@
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 
-const NAV: [string, string][] = [
-  ['/', 'Home'],
-  ['/ticketing', 'Ticketing'],
-  ['/streaming', 'ApexTV'],
-  ['/players', 'Player Perf'],
-  ['/sponsorship', 'Sponsorship'],
-  ['/integrity', 'Integrity'],
-  ['/architecture', 'Architecture'],
-  ['/pipeline', 'Pipeline'],
-  ['/policy', 'Policy'],
-  ['/about', 'About'],
+// Three-cluster nav, mirrors Clarity / Altavest:
+//   1. Persona links (Home + industry pages, flat)
+//   2. dbt-Wizard ▾ — narrative dropdown (Overview / Scenario / Live / Outcome)
+//   3. ODI ▾ — plumbing dropdown (Architecture / Pipeline / About)
+// Dark-theme variant (court-black + gold), matches the FinServ NavEntryEl pattern.
+type NavEntry =
+  | { kind: 'link'; to: string; label: string }
+  | { kind: 'group'; label: string; rootTo: string; matchPrefixes: string[]; children: { to: string; label: string }[] };
+
+const NAV: NavEntry[] = [
+  { kind: 'link', to: '/',            label: 'Home' },
+  { kind: 'link', to: '/ticketing',   label: 'Ticketing' },
+  { kind: 'link', to: '/streaming',   label: 'ApexTV' },
+  { kind: 'link', to: '/players',     label: 'Player Perf' },
+  { kind: 'link', to: '/sponsorship', label: 'Sponsorship' },
+  { kind: 'link', to: '/integrity',   label: 'Integrity' },
+  { kind: 'link', to: '/policy',      label: 'Policy' },
+  {
+    kind: 'group',
+    label: 'dbt-Wizard',
+    rootTo: '/dbt-wizard',
+    matchPrefixes: ['/dbt-wizard', '/scenario', '/wizard-live', '/outcome'],
+    children: [
+      { to: '/dbt-wizard',  label: 'Overview' },
+      { to: '/scenario',    label: 'Scenario' },
+      { to: '/wizard-live', label: 'Live build' },
+      { to: '/outcome',     label: 'Outcome' },
+    ],
+  },
+  {
+    kind: 'group',
+    label: 'ODI',
+    rootTo: '/architecture',
+    matchPrefixes: ['/architecture', '/pipeline', '/about'],
+    children: [
+      { to: '/architecture', label: 'Architecture' },
+      { to: '/pipeline',     label: 'Pipeline' },
+      { to: '/about',        label: 'About' },
+    ],
+  },
 ];
+
+// Flattened version for the mobile grid (dropdown groups become rows of links).
+const NAV_FLAT: { to: string; label: string }[] = NAV.flatMap((e) =>
+  e.kind === 'link' ? [{ to: e.to, label: e.label }] : e.children,
+);
 
 const DEMOS = [
   { key: 'sports',         name: 'Apex Sports League',   industry: 'Pro sports + media',                   url: 'https://fivetran-jasonchletsos.github.io/Sports-ODI-Demo/', accent: '#facc15' },
-  { key: 'finserv',        name: 'Meridian Capital',     industry: 'Financial Services',                   url: 'https://fivetran-jasonchletsos.github.io/FinServ-ODI-Demo/', accent: '#1d4ed8' },
-  { key: 'insurance',      name: 'Atlas Risk',           industry: 'Insurance',                            url: 'https://fivetran-jasonchletsos.github.io/Insurance-ODI-Demo/', accent: '#0369a1' },
-  { key: 'healthcare',     name: 'Epic Clarity',         industry: 'Healthcare',                           url: 'https://fivetran-jasonchletsos.github.io/Healthcare-EPIC-Snowflake-Demo/', accent: '#0d9488' },
+  { key: 'finserv',        name: 'Altavest Capital',     industry: 'Financial Services',                   url: 'https://fivetran-jasonchletsos.github.io/FinServ-ODI-Demo/', accent: '#1d4ed8' },
+  { key: 'insurance',      name: 'Verity Insurance',     industry: 'Insurance',                            url: 'https://fivetran-jasonchletsos.github.io/Insurance-ODI-Demo/', accent: '#0369a1' },
+  { key: 'healthcare',     name: 'Clarity Health',       industry: 'Healthcare',                           url: 'https://fivetran-jasonchletsos.github.io/Healthcare-EPIC-Snowflake-Demo/', accent: '#0d9488' },
   { key: 'media',          name: 'Lighthouse Media',     industry: 'Media',                                url: 'https://fivetran-jasonchletsos.github.io/Media-ODI-Demo/', accent: '#7c3aed' },
   { key: 'retail',         name: 'Storefront Analytics', industry: 'Retail / e-commerce',                  url: 'https://fivetran-jasonchletsos.github.io/RetailEcom-ODI-Demo/', accent: '#ea580c' },
   { key: 'techsaas',       name: 'SaaS Pulse',           industry: 'SaaS analytics',                       url: 'https://fivetran-jasonchletsos.github.io/TechSaaS-ODI-Demo/', accent: '#059669' },
   { key: 'supplychain',    name: 'Manifest',             industry: 'Supply chain',                         url: 'https://fivetran-jasonchletsos.github.io/SupplyChain-ODI-Demo/', accent: '#0891b2' },
   { key: 'lifesci',        name: 'Cohort',               industry: 'Life sciences',                        url: 'https://fivetran-jasonchletsos.github.io/LifeSci-ODI-Demo/', accent: '#be185d' },
   { key: 'tax',            name: 'Allegheny County Tax', industry: 'Public sector',                        url: 'https://fivetran-jasonchletsos.github.io/tax-assessment-databricks-demo/', accent: '#dc2626' },
+  { key: 'mission-control', name: 'Mission Control',     industry: 'Admin · Governance + observability',   url: 'https://fivetran-jasonchletsos.github.io/ODI-Mission-Control/', accent: '#22d3ee' },
 ];
 const CURRENT = 'sports';
+
+// ─── NavEntryEl — dark-theme link or dropdown group ─────────────────────────
+function NavEntryEl({ entry, pathname }: { entry: NavEntry; pathname: string }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onDown = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false); };
+    document.addEventListener('mousedown', onDown);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('mousedown', onDown);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [open]);
+
+  // close on route change
+  useEffect(() => { setOpen(false); }, [pathname]);
+
+  if (entry.kind === 'link') {
+    return (
+      <NavLink
+        to={entry.to}
+        end={entry.to === '/'}
+        className={({ isActive }) =>
+          `relative px-2.5 py-2 font-display font-semibold uppercase tracking-wider text-[12px] whitespace-nowrap transition-colors ${
+            isActive ? 'text-[var(--gold)]' : 'text-white/75 hover:text-white'
+          }`
+        }
+      >
+        {({ isActive }) => (
+          <>
+            {entry.label}
+            {isActive && (
+              <span className="absolute left-2.5 right-2.5 -bottom-[2px] h-[2px]" style={{ background: 'var(--gold)' }} />
+            )}
+          </>
+        )}
+      </NavLink>
+    );
+  }
+
+  const isActive = entry.matchPrefixes.some((p) => pathname === p || pathname.startsWith(p + '/'));
+  return (
+    <span ref={ref} className="relative inline-block">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-haspopup="menu"
+        aria-expanded={open}
+        className={`relative px-2.5 py-2 font-display font-semibold uppercase tracking-wider text-[12px] whitespace-nowrap inline-flex items-center gap-1 transition-colors ${
+          isActive ? 'text-[var(--gold)]' : 'text-white/75 hover:text-white'
+        }`}
+      >
+        {entry.label}
+        <svg width="9" height="9" viewBox="0 0 10 10" aria-hidden className={`transition-transform ${open ? 'rotate-180' : ''}`}>
+          <path d="M2 4 L5 7 L8 4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+        {isActive && (
+          <span className="absolute left-2.5 right-5 -bottom-[2px] h-[2px]" style={{ background: 'var(--gold)' }} />
+        )}
+      </button>
+      {open && (
+        <span role="menu" className="absolute left-0 top-full mt-1 min-w-[200px] rounded-sm border border-white/15 bg-[var(--court-black)] shadow-xl overflow-hidden z-50">
+          {entry.children.map((c) => (
+            <NavLink
+              key={c.to}
+              to={c.to}
+              end={c.to === '/'}
+              className={({ isActive: ia }) =>
+                `block px-4 py-2.5 text-[12px] font-display font-semibold uppercase tracking-wider transition-colors ${
+                  ia
+                    ? 'bg-white/10 text-[var(--gold-bright)]'
+                    : 'text-white/80 hover:bg-white/10 hover:text-white'
+                }`
+              }
+            >
+              {c.label}
+            </NavLink>
+          ))}
+        </span>
+      )}
+    </span>
+  );
+}
 
 export default function Layout() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -55,24 +179,8 @@ export default function Layout() {
             </Link>
 
             <nav className="hidden xl:flex items-center gap-0.5 text-sm">
-              {NAV.map(([to, label]) => (
-                <NavLink
-                  key={to}
-                  to={to}
-                  end={to === '/'}
-                  className={({ isActive }) =>
-                    `relative px-2.5 py-2 font-display font-semibold uppercase tracking-wider text-[12px] transition-colors ${
-                      isActive ? 'text-[var(--gold)]' : 'text-white/75 hover:text-white'
-                    }`
-                  }
-                >
-                  {({ isActive }) => (
-                    <>
-                      {label}
-                      {isActive && <span className="absolute left-2.5 right-2.5 -bottom-[2px] h-[2px]" style={{ background: 'var(--gold)' }} />}
-                    </>
-                  )}
-                </NavLink>
+              {NAV.map((entry) => (
+                <NavEntryEl key={entry.kind === 'link' ? entry.to : entry.label} entry={entry} pathname={location.pathname} />
               ))}
             </nav>
 
@@ -94,7 +202,7 @@ export default function Layout() {
           {mobileOpen && (
             <div className="xl:hidden pb-4 border-t border-white/10 pt-3">
               <nav className="grid grid-cols-2 gap-1 text-sm">
-                {NAV.map(([to, label]) => (
+                {NAV_FLAT.map(({ to, label }) => (
                   <NavLink
                     key={to}
                     to={to}
