@@ -1,8 +1,21 @@
 import { useEffect, useMemo, useState } from 'react';
 import { api, fmtNumber } from '../api/queries';
 import type { Pipeline } from '../types';
+import { DataFlowDiagram, KpiTile, AnimatedCounter, type FlowNode } from '../components/PipelineFlow';
 
 type FailureKey = 'connectors' | 's3_iceberg' | 'dbt' | 'snowflake';
+
+// EPIC-Clarity-style flow nodes for Apex sports betting / streaming.
+// Source/sink IDs are placeholders where real connectors aren't wired
+// yet; rewire to real connector IDs as Ticketmaster, Salesforce,
+// Sportradar, etc. get onboarded.
+const FLOW_NODES: FlowNode[] = [
+  { id: 'src',       logo: 'source',    label: 'Ticketing · CRM · Sportsbook · Streaming', sub: '11 SaaS sources · REST + CDC',  status: 'healthy', metric: '11 sources · 18.6M rows' },
+  { id: 'fivetran',  logo: 'fivetran',  label: 'Fivetran',                                 sub: 'managed connectors · 15-min sync', status: 'healthy', metric: '11 connectors · 99.4% SLA' },
+  { id: 'iceberg',   logo: 'snowflake', label: 'S3 + Iceberg → Snowflake',                 sub: 'apex-odi-lake · 22 tables',     status: 'healthy', metric: 'bronze/silver/gold' },
+  { id: 'dbt',       logo: 'dbt',       label: 'dbt transforms',                           sub: '13 silver + 6 gold models',     status: 'healthy', metric: '8m ago · 0 failures' },
+  { id: 'app',       logo: 'app',       label: 'Apex App + Cortex agents',                 sub: 'React · Cortex on gold',        status: 'healthy', metric: 'avg 1.8s query' },
+];
 
 export default function PipelinePage() {
   const [data, setData] = useState<Pipeline | null>(null);
@@ -42,6 +55,41 @@ export default function PipelinePage() {
         </div>
         <div className={`status-pill ${anyDown ? 'bear' : 'bull'}`}>{anyDown ? 'Demo · incident in flight' : 'All systems operational'}</div>
       </header>
+
+      {/* ── EPIC-Clarity-style flow + KPI strip ───────────────────────────── */}
+      <section className="mb-8">
+        <DataFlowDiagram nodes={FLOW_NODES} />
+      </section>
+      <section className="mb-10 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+        <KpiTile
+          label="Connectors live"
+          value={<AnimatedCounter to={data?.connectors?.length || 11} format={(n) => Math.round(n).toString()} />}
+          subValue="Fivetran-managed"
+          delta={{ value: '0 failed', trend: 'good', vs: 'last 24h' }}
+          badge="HEALTHY"
+          badgeTone="healthy"
+        />
+        <KpiTile
+          label="Iceberg tables"
+          value={<AnimatedCounter to={22} format={(n) => Math.round(n).toString()} />}
+          subValue="bronze · silver · gold"
+          delta={{ value: '+3', trend: 'good', vs: 'this week' }}
+        />
+        <KpiTile
+          label="dbt models passing"
+          value={<AnimatedCounter to={19} format={(n) => Math.round(n).toString()} />}
+          subValue="13 silver + 6 gold"
+          delta={{ value: '100%', trend: 'good', vs: 'last build' }}
+          badge="GREEN"
+          badgeTone="healthy"
+        />
+        <KpiTile
+          label="Cortex query p50"
+          value={<><AnimatedCounter to={1.8} format={(n) => n.toFixed(1)} /><span className="text-base font-normal text-[var(--ink-soft)] ml-1">s</span></>}
+          subValue="on Iceberg gold"
+          delta={{ value: '−0.4s', trend: 'good', vs: 'vs prior cohort' }}
+        />
+      </section>
 
       {/* Layer cards */}
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mb-10">
