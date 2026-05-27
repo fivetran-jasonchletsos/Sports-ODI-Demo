@@ -243,9 +243,9 @@ export default function Layout() {
           <div>
             <div className="eyebrow-light mb-2">Data Pipeline</div>
             <p className="leading-relaxed text-white/70">
-              Ticketing, streaming, player tracking, sponsorship, social, sportsbook
-              into S3 + Apache Iceberg via Fivetran. dbt builds bronze, silver, gold.
-              Snowflake reads the same Iceberg tables. Cortex powers the agents.
+              Ticketing, streaming, player tracking, sponsorship, social, sportsbook →
+              Fivetran → Iceberg on S3 → dbt → Great Expectations →
+              Snowflake / Athena / Trino → Cortex agents.
             </p>
           </div>
           <div>

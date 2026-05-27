@@ -150,5 +150,5 @@ const STACK = [
   { layer: 'Transform',  name: 'dbt',                      note: 'Bronze · silver · gold semantic layer. 22 tested Iceberg-native models.' },
   { layer: 'Query',      name: 'Snowflake',                note: 'Reads Iceberg externals directly. Same SQL would run on Trino or Athena.' },
   { layer: 'Agents',     name: 'Snowflake Cortex',         note: 'Pricing, content, load, ROI, integrity agents reading gold-layer tables.' },
-  { layer: 'Frontend',   name: 'React 19 + Vite + Tailwind v4', note: 'Static SPA on GitHub Pages reading JSON snapshot of gold.' },
+  { layer: 'Frontend',   name: 'React 19 + Vite + Tailwind v4', note: 'Static SPA on GitHub Pages reading the gold layer via Snowflake / Athena / Trino.' },
 ];
